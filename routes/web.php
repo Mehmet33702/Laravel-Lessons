@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//buradan controller in tanımlanması gerekir
+//buradan controller kütüphanesi tanımlamaları
 use App\Http\Controllers\Uygulama;
 use App\Http\Controllers\Ornek;
 use App\Http\Controllers\Yonet;
+use App\Http\Controllers\Formislemi;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,8 +23,11 @@ Route::get('/merhaba/{isim}', [Ornek::class, 'test']);
 //controller içerisinde view oluşturma ve değişken göndermek
 Route::get('/adsoyad/{isim}', [Ornek::class, 'adsoyad']);
 
-
 //view için kullanılan örnek
 Route::get('/ifkomut', function () {return view('ifelsekomut');});
 
-Route::get('/web', [Yonet::class, 'site']);
+//route isim verme ->name()
+Route::get('/web', [Yonet::class, 'site'])->name('linkweb');
+
+//form işlemi
+Route::get("/form",[Formislemi::class,'gorunum']);
