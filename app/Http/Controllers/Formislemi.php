@@ -10,4 +10,8 @@ class Formislemi extends Controller
     {
         return view('form');
     }
+    public function sonuc(Request $formbilgileri) //formdan gelen bilgileri Request ile alıyoruz
+    {    
+        return "$formbilgileri->ad $formbilgileri->metin"; //formda tanımlı ad ve metin bilgisi gönder
+    }
 }

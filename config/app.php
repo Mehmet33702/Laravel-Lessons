@@ -1,4 +1,6 @@
 <?php
+use App\Http\Middleware\FormKontrol;
+
 
 return [
 

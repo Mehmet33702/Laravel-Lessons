@@ -31,3 +31,5 @@ Route::get('/web', [Yonet::class, 'site'])->name('linkweb');
 
 //form işlemi
 Route::get("/form",[Formislemi::class,'gorunum']);
+//form sonuçları, Veri gönderirken post olarak gönderiyoruz
+Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->name('sonuc'); 
