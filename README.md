@@ -30,7 +30,11 @@
     </tr>
     <tr>
       <td>php artisan migrate  </td>
-      <td>Oluşturulan migrations kalsörü içindeki dosyaların tümünün mysql aktarılmasını sağlıyor</td>
+      <td>Oluşturulan migrations klasörü içindeki dosyaların tümünün mysql aktarılmasını sağlıyor</td>
+    </tr>
+    <tr>
+      <td>php artisan make:Model 'Genelde Veritabanı tablo ismi verilir'  </td>
+      <td>Veritabanı işlemlerinin ekleme, listeleme vb. için Model yapılar kullanılır. Model oluşturur.</td>
     </tr>
 
   </tbody>

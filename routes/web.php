@@ -7,6 +7,8 @@ use App\Http\Controllers\Ornek;
 use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Formislemi;
 use App\Http\Middleware\FormKontrol;
+use App\Http\Controllers\Veritabani_islemi;
+use App\Http\Controllers\Model_islemi;
 
 
 Route::get('/', function () {
@@ -37,3 +39,14 @@ Route::get("/form",[Formislemi::class,'gorunum']);
 //form sonuçları, Veri gönderirken post olarak gönderiyoruz
 //Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware([FormKontrol::class])->name('sonuc'); 4
 Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware('arakontrol')->name('sonuc'); 
+
+//Veritbanına işlemleri
+Route::get('/ekle', [Veritabani_islemi::class, 'ekle']);
+Route::get('/guncelle', [Veritabani_islemi::class, 'guncelle']);
+Route::get('/sil', [Veritabani_islemi::class, 'sil']);
+Route::get('/tekliste', [Veritabani_islemi::class, 'tekliste']);
+Route::get('/tumliste', [Veritabani_islemi::class, 'tumliste']);
+
+//models içerisinden çağrılması
+Route::get('/mliste', [Model_islemi::class, 'mtumliste']);
+Route::get('/mekle', [Model_islemi::class, 'mekle']);
