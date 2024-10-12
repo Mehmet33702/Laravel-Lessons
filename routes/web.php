@@ -6,6 +6,9 @@ use App\Http\Controllers\Uygulama;
 use App\Http\Controllers\Ornek;
 use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Formislemi;
+use App\Http\Middleware\FormKontrol;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,4 +35,5 @@ Route::get('/web', [Yonet::class, 'site'])->name('linkweb');
 //form işlemi
 Route::get("/form",[Formislemi::class,'gorunum']);
 //form sonuçları, Veri gönderirken post olarak gönderiyoruz
-Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->name('sonuc'); 
+//Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware([FormKontrol::class])->name('sonuc'); 4
+Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware('arakontrol')->name('sonuc'); 
