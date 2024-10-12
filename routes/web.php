@@ -14,7 +14,7 @@ use App\Http\Controllers\ResimYukle;
 
 Route::get('/', function () {
     return view('welcome');
-    
+
 });
 
 //Controller içn kullanılan örnekleri get ve post
@@ -39,7 +39,7 @@ Route::get('/web', [Yonet::class, 'site'])->name('linkweb');
 Route::get("/form",[Formislemi::class,'gorunum']);
 //form sonuçları, Veri gönderirken post olarak gönderiyoruz
 //Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware([FormKontrol::class])->name('sonuc'); 4
-Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware('arakontrol')->name('sonuc'); 
+Route::post("/form-sonuc",[Formislemi::class,'sonuc'])->Middleware('arakontrol')->name('sonuc');
 
 //Veritbanına işlemleri
 Route::get('/ekle', [Veritabani_islemi::class, 'ekle']);
@@ -61,3 +61,9 @@ Route::get('/upload', function(){
     return view('upload');
 });
 Route::post('/resim-ilet', [ResimYukle::class, 'resimyukle'])->name('yukle');
+
+//Üyelik
+Route::get('/uye', function(){
+    return view('uyelik');
+});
+Route::post('/uye-kayit',[App\Http\Controllers\Uyelik::class, 'uyekayit'])->name('uyekayit');//use App\Http\Controllers\ üste eklemeden burada çağrılması

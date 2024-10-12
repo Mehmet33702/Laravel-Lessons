@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="tr">
   <head>
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
     <title>Form Sayfası</title>
   </head>
   <body>  <div>
     <form action="{{ route('iletisim-sonuc') }}" method="POST"> <!--route('sonuc') sayfasına gitmesi-->
-        <!-- csrf Token yapısı oluşturuyor Laravelde bu zorunlu-->
-        @csrf 
-      
+        <!-- csrf Token yapısı oluşturuyor Laravelde güvenlik token işlemleri için zorunlu-->
+        @csrf
+
         <label>Ad soyad :</label>
         <input type="text" name="adsoyad"><br>
         <label>e-Posta :</label>
