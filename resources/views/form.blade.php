@@ -10,7 +10,7 @@
         @csrf 
         
         <label for="fname">Ad soyad :</label>
-        <input type="text" id="ad" name="ad" value="Mehmet"><br>
+        <input type="text" name="isim" value="Mehmet"><br>
         <label for="lname">Mesaj :</label><br>
         <textarea name="metin" style="width:300px; height:200px" id="metin">Merhaba</textarea><br><br>
         <input type="submit" name="ilet" value="Gönder">

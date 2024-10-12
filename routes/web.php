@@ -9,9 +9,9 @@ use App\Http\Controllers\Formislemi;
 use App\Http\Middleware\FormKontrol;
 
 
-
 Route::get('/', function () {
     return view('welcome');
+    
 });
 
 //Controller içn kullanılan örnekleri get ve post
