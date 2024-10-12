@@ -9,7 +9,8 @@ use App\Http\Controllers\Formislemi;
 use App\Http\Middleware\FormKontrol;
 use App\Http\Controllers\Veritabani_islemi;
 use App\Http\Controllers\Model_islemi;
-
+use App\Http\Controllers\IletisimControl;
+use App\Http\Controllers\ResimYukle;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +51,13 @@ Route::get('/tumliste', [Veritabani_islemi::class, 'tumliste']);
 //models içerisinden çağrılması
 Route::get('/mliste', [Model_islemi::class, 'mtumliste']);
 Route::get('/mekle', [Model_islemi::class, 'mekle']);
+
+//form üzerinden veritabına kayıt
+Route::get('/iletisim', [IletisimControl::class, 'iletisim']);
+Route::post('/iletisim-sonuc', [IletisimControl::class, 'ekleme'])->name('iletisim-sonuc');
+
+//Upload işlemleri
+Route::get('/upload', function(){
+    return view('upload');
+});
+Route::post('/resim-ilet', [ResimYukle::class, 'resimyukle'])->name('yukle');

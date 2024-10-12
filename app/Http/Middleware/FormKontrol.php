@@ -19,7 +19,7 @@ class FormKontrol
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->isim=="")
+        if ($request->adsoyad=="")
         {
             return redirect('form'); //eğer metin içinde elma var ise redirect ile gerei form sayfasına gönderiyor
         }
