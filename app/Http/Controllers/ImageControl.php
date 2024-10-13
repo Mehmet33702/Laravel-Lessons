@@ -21,7 +21,14 @@ class ImageControl extends Controller
        $image = $request->file('image');
        //resim adı
        $imageName = time().'.'.$image->getClientOriginalExtension();
-       $image->move(storage_path('public/imgyukle'), $imageName);
+       //resmi yükleme
+       $image->move('public/imgyukle', $imageName);
+
+       //resim küçültme
+
+        // create new manager instance with desired driver
+        $manager = new ImageManager(new Driver());
+
         dd($request->image);
     }
 }
