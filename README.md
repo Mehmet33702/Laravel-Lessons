@@ -40,5 +40,21 @@
       <td>composer require intervention/image  </td>
       <td>Resimlerin boyutları eklentisi kurulumu, adres: https://image.intervention.io/v3/introduction/installation</td>
     </tr>
+    <tr>
+      <td>composer require intervention/image-laravel  </td>
+      <td>Laravel' entegre etmek için</td>
+    </tr>
+    <tr>
+      <td>composer remove intervention/image<br>
+      composer clear</td>
+      <td>image invertion kaldırma ve temizleme</td>
+    </tr>
+    <tr>
+      <td>  php.ini dosyasına git<br>
+            bunu ara ;extension=gd<br>
+            kaldırmak ; sonra sunucuyu yeniden başlat<br>
+      </td>
+      <td>GD Library aktif etmek</td>
+    </tr>
   </tbody>
 </table>

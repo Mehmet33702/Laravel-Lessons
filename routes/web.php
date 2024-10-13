@@ -11,7 +11,8 @@ use App\Http\Controllers\Veritabani_islemi;
 use App\Http\Controllers\Model_islemi;
 use App\Http\Controllers\IletisimControl;
 use App\Http\Controllers\ResimYukle;
-
+use Intervention\Image\Laravel\Facades\Image; //image invertion tanımlaması
+use App\Http\Controllers\ImageControl;
 
 
 Route::get('/', function () {
@@ -87,4 +88,8 @@ Route::get('/mesaj',function(){
     return view('sayfalar.iletisim');
 });
 
-
+//image invertion kullanımı, route group olarak kullanımı
+Route::controller(ImageControl::class)->group(function() {
+    Route::get('/resim', 'imgyukle')->name('imgyukle');
+    Route::post('/image.store', 'storeimage')->name('image.store');
+});
