@@ -18,6 +18,7 @@
                             {{ Session::get('error') }}
                         </div>
                         @endif
+
                     <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card">
@@ -37,7 +38,6 @@
                             </div>
                         </div>
                     </form>
-
 
                 </div>
             </div>
