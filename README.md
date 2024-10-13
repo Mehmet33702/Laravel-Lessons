@@ -36,6 +36,9 @@
       <td>php artisan make:Model 'Genelde Veritabanı tablo ismi verilir'  </td>
       <td>Veritabanı işlemlerinin ekleme, listeleme vb. için Model yapılar kullanılır. Model oluşturur.</td>
     </tr>
-
+    <tr>
+      <td>composer require intervention/image  </td>
+      <td>Resimlerin boyutları eklentisi kurulumu, adres: https://image.intervention.io/v3/introduction/installation</td>
+    </tr>
   </tbody>
 </table>

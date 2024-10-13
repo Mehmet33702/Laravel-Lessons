@@ -12,6 +12,8 @@ use App\Http\Controllers\Model_islemi;
 use App\Http\Controllers\IletisimControl;
 use App\Http\Controllers\ResimYukle;
 
+
+
 Route::get('/', function () {
     return view('welcome');
 
@@ -65,5 +67,24 @@ Route::post('/resim-ilet', [ResimYukle::class, 'resimyukle'])->name('yukle');
 //Üyelik
 Route::get('/uye', function(){
     return view('uyelik');
+});//use App\Http\Controllers\ üste eklemeden buradan çağrılması örneği
+Route::post('/uye-kayit',[App\Http\Controllers\Uyelik::class, 'uyekayit'])->name('uyekayit');
+
+//tema bağlantıları
+Route::get('/tema',function(){
+    return view('sayfalar.anasayfa');
 });
-Route::post('/uye-kayit',[App\Http\Controllers\Uyelik::class, 'uyekayit'])->name('uyekayit');//use App\Http\Controllers\ üste eklemeden burada çağrılması
+Route::get('/galeri',function(){
+    return view('sayfalar.galeri');
+});
+Route::get('/hizmetler',function(){
+    return view('sayfalar.hizmet');
+});
+Route::get('/about',function(){
+    return view('sayfalar.kurum');
+});
+Route::get('/mesaj',function(){
+    return view('sayfalar.iletisim');
+});
+
+
