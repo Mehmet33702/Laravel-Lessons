@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager; //image invertion tanımlanması
-use Intervention\Image\Drivers\Gd\Driver; //image invertion tanımlanması
+use Intervention\Image\Drivers\Gd\Driver; //GD tanımlama image invertion tanımlanması
 
 class ImageControl extends Controller
 {
@@ -24,11 +24,28 @@ class ImageControl extends Controller
        //resmi yükleme
        $image->move('public/imgyukle', $imageName);
 
-       //resim küçültme
+       //resim işlemleri
+       //-------------------------------------------------------
+        //istenilen sürücü ile yeni yönetici örneği oluştur
+        $imgManager = new ImageManager(new Driver());
 
-        // create new manager instance with desired driver
-        $manager = new ImageManager(new Driver());
+        // Yerel dosya sisteminden yüklenen imaj okunuyor (yüklemeler)
+        $thumblmage =$imgManager->read('public/imgyukle/'.$imageName);
 
-        dd($request->image);
+        // Resmi yeniden boyutlandır, cover
+        $thumblmage->resize(300, 200);
+        //$thumblmage->cover(300, 200);
+
+       // Yeniden boyutlandırılan resmi farklı bir dizinde saklayın
+       $response= $thumblmage->save(public_path('public/imgyukle/thumbnails/'.$imageName));
+
+       // Resmi veritabanında saklayabiliriz
+       if($response){
+        return back()->with('success', $imageName.' Resim, yüklendi ve boyutlandırıldı.');
+       }
+       return back()->with('error','Resim yüklenemedi ve yeniden boyutlandırılamadı.');
+
+
+
     }
 }
