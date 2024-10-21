@@ -38,8 +38,10 @@
         <!-- sayfaları değişen alan şeklinde tanımlama yield() ile tanımla yapılacak-->
         @yield('govde') <!--govde ismini kendimiz belirledik-->
 
-        <!-- @"include("sayfalar.anasayfa")-->
-        <!--@"include("sayfalar.kurum")-->
+        <!--govde ismi kullanıldığı için include kullanılmıyor-->
+        @"include("sayfalar.anasayfa")
+        @"include("sayfalar.kurum")
+
 
         <!-- Footer-->
         <footer class="bg-light py-5">
