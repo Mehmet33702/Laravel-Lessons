@@ -13,16 +13,16 @@ class ImageControl extends Controller
     }
 
     public function storeimage(Request $request){
-       $request->validate([
+        $request->validate([
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-       ]);
+        ]);
 
        //resim için yükleme
-       $image = $request->file('image');
+        $image = $request->file('image');
        //resim adı
-       $imageName = time().'.'.$image->getClientOriginalExtension();
+        $imageName = time().'.'.$image->getClientOriginalExtension();
        //resmi yükleme
-       $image->move('public/imgyukle', $imageName);
+        $image->move('public/imgyukle', $imageName);
 
        //resim işlemleri
        //-------------------------------------------------------
@@ -37,14 +37,13 @@ class ImageControl extends Controller
         //$thumblmage->cover(300, 200);
 
        // Yeniden boyutlandırılan resmi farklı bir dizinde saklayın
-       $response= $thumblmage->save(public_path('public/imgyukle/thumbnails/'.$imageName));
+        $response= $thumblmage->save(public_path('public/imgyukle/thumbnails/'.$imageName));
 
        // Resmi veritabanında saklayabiliriz
-       if($response){
+        if($response){
         return back()->with('success', $imageName.' Resim, yüklendi ve boyutlandırıldı.');
-       }
-       return back()->with('error','Resim yüklenemedi ve yeniden boyutlandırılamadı.');
-
+        }
+        return back()->with('error','Resim yüklenemedi ve yeniden boyutlandırılamadı.');
 
 
     }
