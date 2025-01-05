@@ -1,18 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-//buradan controller kütüphanesi tanımlamaları
-use App\Http\Controllers\Uygulama;
 use App\Http\Controllers\Ornek;
+//buradan controller kütüphanesi tanımlamaları
 use App\Http\Controllers\Yonet;
+use App\Http\Controllers\Uygulama;
 use App\Http\Controllers\Formislemi;
+use App\Http\Controllers\ResimYukle;
 use App\Http\Middleware\FormKontrol;
-use App\Http\Controllers\Veritabani_islemi;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelControl;
+use App\Http\Controllers\ImageControl;
 use App\Http\Controllers\Model_islemi;
 use App\Http\Controllers\IletisimControl;
-use App\Http\Controllers\ResimYukle;
+use App\Http\Controllers\Veritabani_islemi;
 use Intervention\Image\Laravel\Facades\Image; //image invertion tanımlaması
-use App\Http\Controllers\ImageControl;
 
 
 Route::get('/', function () {
@@ -93,3 +94,7 @@ Route::controller(ImageControl::class)->group(function() {
     Route::get('/resim', 'imgyukle')->name('imgyukle');
     Route::post('/image.store', 'storeimage')->name('image.store');
 });
+
+//excel to import data
+Route::get('/import_excel', [ExcelControl::class, 'import_excel']);
+Route::post('/import_excel', [ExcelControl::class, 'import_excel_post']);
