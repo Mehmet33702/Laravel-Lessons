@@ -77,6 +77,8 @@ Route::get('/about',function(){return view('sayfalar.kurum');});
 Route::get('/mesaj',function(){return view('sayfalar.iletisim');});
 
 
+
+
 //image invertion kullanımı, route group olarak kullanımı
 Route::controller(ImageControl::class)->group(function() {
     Route::get('/resim', 'imgyukle')->name('imgyukle');
@@ -92,3 +94,4 @@ Route::get('/menuler', [MenuController::class, 'index'])->name('menuler');
 Route::post('/menuler', [MenuController::class, 'store'])->name('menuler.store');
 Route::put('/menuler/{id}', [MenuController::class, 'update'])->name('menuler.update');
 Route::delete('/menuler/{id}', [MenuController::class, 'destroy'])->name('menuler.destroy');
+Route::get('/menugoster', [MenuController::class, 'menugoster'])->name('menugoster');

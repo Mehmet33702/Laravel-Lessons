@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+
+     // Navbar için menüleri listeleme
+     public function menugoster()
+     {
+         $menuler = Menu::with('altMenuler')->whereNull('parent_id')->get();
+         return view('menugoster', compact('menuler'));
+     }
+
     public function index()
     {
         $menuler = Menu::with('altMenuler')->whereNull('parent_id')->get();
