@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelControl;
 use App\Http\Controllers\ImageControl;
 use App\Http\Controllers\Model_islemi;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\IletisimControl;
 use App\Http\Controllers\Veritabani_islemi;
 use Intervention\Image\Laravel\Facades\Image; //image invertion tanımlaması
@@ -61,33 +62,20 @@ Route::get('/iletisim', [IletisimControl::class, 'iletisim']);
 Route::post('/iletisim-sonuc', [IletisimControl::class, 'ekleme'])->name('iletisim-sonuc');
 
 //Upload işlemleri
-Route::get('/upload', function(){
-    return view('upload');
-});
+Route::get('/upload', function(){return view('upload');});
 Route::post('/resim-ilet', [ResimYukle::class, 'resimyukle'])->name('yukle');
 
 //Üyelik
-Route::get('/uye', function(){
-    return view('uyelik');
-});//use App\Http\Controllers\ üste eklemeden buradan çağrılması örneği
+Route::get('/uye', function(){return view('uyelik');});//use App\Http\Controllers\ üste eklemeden buradan çağrılması örneği
 Route::post('/uye-kayit',[App\Http\Controllers\Uyelik::class, 'uyekayit'])->name('uyekayit');
 
 //tema bağlantıları
-Route::get('/tema',function(){
-    return view('sayfalar.anasayfa');
-});
-Route::get('/galeri',function(){
-    return view('sayfalar.galeri');
-});
-Route::get('/hizmetler',function(){
-    return view('sayfalar.hizmet');
-});
-Route::get('/about',function(){
-    return view('sayfalar.kurum');
-});
-Route::get('/mesaj',function(){
-    return view('sayfalar.iletisim');
-});
+Route::get('/tema',function(){return view('sayfalar.anasayfa');});
+Route::get('/galeri',function(){return view('sayfalar.galeri');});
+Route::get('/hizmetler',function(){return view('sayfalar.hizmet');});
+Route::get('/about',function(){return view('sayfalar.kurum');});
+Route::get('/mesaj',function(){return view('sayfalar.iletisim');});
+
 
 //image invertion kullanımı, route group olarak kullanımı
 Route::controller(ImageControl::class)->group(function() {
@@ -98,3 +86,9 @@ Route::controller(ImageControl::class)->group(function() {
 //excel to import data
 Route::get('/import_excel', [ExcelControl::class, 'import_excel']);
 Route::post('/import_excel', [ExcelControl::class, 'import_excel_post']);
+
+
+Route::get('/menuler', [MenuController::class, 'index'])->name('menuler');
+Route::post('/menuler', [MenuController::class, 'store'])->name('menuler.store');
+Route::put('/menuler/{id}', [MenuController::class, 'update'])->name('menuler.update');
+Route::delete('/menuler/{id}', [MenuController::class, 'destroy'])->name('menuler.destroy');
