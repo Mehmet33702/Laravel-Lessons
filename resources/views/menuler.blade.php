@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Menü Yönetimi</h1>
-        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#menuModal">Menü Ekle</button>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#menuModal">Menü Ekle</button><br><a href="/menugoster">Navbar Menu</a>
         <table class="table table-bordered table-sm table-hover">
             <thead style="background-color: lightgray;">
                 <tr>
