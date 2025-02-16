@@ -17,10 +17,9 @@ use App\Http\Controllers\Veritabani_islemi;
 use Intervention\Image\Laravel\Facades\Image; //image invertion tanımlaması
 
 
-Route::get('/', function () {
-    return view('welcome');
-
-});
+Route::get('/', function () {return view('welcome');});
+Route::get('/navbar2', function () {return view('navbar2');});
+Route::get('/navbar3', function () {return view('navbar3');});
 
 //Controller içn kullanılan örnekleri get ve post
 //Route::get('anasayfa','Uygulama@index'); // Uygulama Controllers içerisinde yer alan index metodu ulaşır
